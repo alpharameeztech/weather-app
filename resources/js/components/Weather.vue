@@ -39,7 +39,7 @@
                 max_temp: 'Loading...',
                 weather_state_abbr: false,
                 the_temp: 'Loading...',
-                link: '#/' + this.woeid
+                link: '#/weather/' + this.woeid
             }
         },
 

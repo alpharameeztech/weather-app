@@ -7,7 +7,8 @@ let routes = [
     },
 
     {
-        path: '/about',
+        path: '/weather/:woeid/',
+       
         component: require('./views/About')
     },
 
