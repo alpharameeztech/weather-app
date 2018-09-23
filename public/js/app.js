@@ -1741,6 +1741,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -1750,7 +1754,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             city_name: 'Loading...',
             min_temp: 'loading...',
             max_temp: 'Loading...',
-            weather_state_abbr: false,
+            weather_state_abbr: [],
             the_temp: 'Loading...',
             consolidated_weather: []
 
@@ -1765,9 +1769,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             _this.min_temp = res.data.consolidated_weather[0].min_temp;
             _this.max_temp = res.data.consolidated_weather[0].max_temp;
             _this.the_temp = res.data.consolidated_weather[0].the_temp;
-            _this.weather_state_abbr = 'https://www.metaweather.com/static/img/weather/' + res.data.consolidated_weather[0].weather_state_abbr + '.svg';
+
+            //this.weather_state_abbr =  'https://www.metaweather.com/static/img/weather/' + res.data.consolidated_weather[0].weather_state_abbr +'.svg';
             _this.consolidated_weather = res.data.consolidated_weather;
-            console.log(res.data.consolidated_weather[0]);
+
+            for (var index in _this.consolidated_weather) {
+                // don't actually do this
+                // console.log(this.consolidated_weather[index].weather_state_abbr);
+                _this.weather_state_abbr.push('https://www.metaweather.com/static/img/weather/' + _this.consolidated_weather[index].weather_state_abbr + '.svg');
+            }
+
+            console.log(_this.weather_state_abbr);
         });
     },
     created: function created() {
@@ -2500,39 +2512,58 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-md-5 col-md-offset-2" }, [
-    _c("div", { staticClass: "panel panel-default" }, [
-      _c("div", { staticClass: "panel-body" }, [
-        _c("h4", [_vm._v("Weekly Forecast of " + _vm._s(_vm.city_name))]),
-        _vm._v(" "),
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("h4", { staticClass: "card-title" }, [
-              _vm._v(_vm._s(_vm.city_name) + " "),
-              _c("span", { staticClass: "badge badge-primary" }, [
-                _vm._v("Today: " + _vm._s(_vm.the_temp) + " °C")
+  return _c(
+    "div",
+    { staticClass: "row" },
+    [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("h4", [_vm._v("Weekly Forecast of " + _vm._s(_vm.city_name))])
+      ]),
+      _vm._v(" "),
+      _vm._l(_vm.consolidated_weather, function(weather) {
+        return _c(
+          "div",
+          { key: weather.id, staticClass: "col-md-5 col-md-offset-2" },
+          [
+            _c("div", { staticClass: "panel panel-default" }, [
+              _c("div", { staticClass: "panel-body" }, [
+                _c("div", { staticClass: "card" }, [
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("h4", { staticClass: "card-title" }, [
+                      _vm._v(_vm._s(_vm.city_name) + " "),
+                      _c("span", { staticClass: "badge badge-primary" }, [
+                        _vm._v("Today: " + _vm._s(weather.the_temp) + " °C")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm.weather_state_abbr
+                      ? _c("img", {
+                          staticStyle: { width: "32px" },
+                          attrs: { src: _vm.weather_state_abbr[1], alt: "Snow" }
+                        })
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "card-text" }, [
+                      _vm._v("Max: " + _vm._s(weather.max_temp) + "°C")
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "card-text" }, [
+                      _vm._v("Min: " + _vm._s(weather.min_temp) + "°C")
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "card-text" }, [
+                      _vm._v("Humidity: " + _vm._s(weather.humidity))
+                    ])
+                  ])
+                ])
               ])
-            ]),
-            _vm._v(" "),
-            _vm.weather_state_abbr
-              ? _c("img", {
-                  staticStyle: { width: "32px" },
-                  attrs: { src: _vm.weather_state_abbr, alt: "Snow" }
-                })
-              : _vm._e(),
-            _vm._v(" "),
-            _c("p", { staticClass: "card-text" }, [
-              _vm._v("Max: " + _vm._s(_vm.max_temp) + "°C")
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "card-text" }, [
-              _vm._v("Min: " + _vm._s(_vm.min_temp) + "°C")
             ])
-          ])
-        ])
-      ])
-    ])
-  ])
+          ]
+        )
+      })
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
