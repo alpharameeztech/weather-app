@@ -1664,6 +1664,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1676,7 +1677,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             city_name: 'Loading...',
             min_temp: 'loading...',
             max_temp: 'Loading...',
-            weather_state_abbr: false
+            weather_state_abbr: false,
+            the_temp: 'Loading...',
+            link: '#/' + this.woeid
         };
     },
 
@@ -1689,6 +1692,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             _this.city_name = res.data.title;
             _this.min_temp = res.data.consolidated_weather[0].min_temp;
             _this.max_temp = res.data.consolidated_weather[0].max_temp;
+            _this.the_temp = res.data.consolidated_weather[0].the_temp;
             _this.weather_state_abbr = 'https://www.metaweather.com/static/img/weather/' + res.data.consolidated_weather[0].weather_state_abbr + '.svg';
 
             console.log(res.data.consolidated_weather[0]);
@@ -2503,7 +2507,7 @@ var render = function() {
             _c("h4", { staticClass: "card-title" }, [
               _vm._v(_vm._s(_vm.city_name) + " "),
               _c("span", { staticClass: "badge badge-primary" }, [
-                _vm._v("Today")
+                _vm._v("Today: " + _vm._s(_vm.the_temp) + " °C")
               ])
             ]),
             _vm._v(" "),
@@ -2522,9 +2526,11 @@ var render = function() {
               _vm._v("Min: " + _vm._s(_vm._f("round")(_vm.min_temp)) + "°C")
             ]),
             _vm._v(" "),
-            _c("a", { staticClass: "btn btn-primary", attrs: { href: "#" } }, [
-              _vm._v("View Forcest")
-            ])
+            _c(
+              "a",
+              { staticClass: "btn btn-primary", attrs: { href: _vm.link } },
+              [_vm._v("View Forcest")]
+            )
           ])
         ])
       ])
