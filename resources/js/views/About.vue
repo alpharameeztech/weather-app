@@ -14,9 +14,9 @@
                        <div class="card" >
                           
                             <div class="card-body">
-                                <h4 class="card-title">{{city_name}} <span class="badge badge-primary">Today: {{weather.the_temp}} °C</span></h4>
+                                <h4 class="card-title">{{city_name}} <span class="badge badge-primary">{{weather.applicable_date  | weekdays }}: {{weather.the_temp}} °C</span></h4>
                                 <img v-if="weather_state_abbr" :src="weather_state(weather.weather_state_abbr)" alt="Snow" style="width:32px">
-                                <p class="card-text">Date: {{weather.applicable_date}} </p>
+                                <p class="card-text">Date: {{weather.applicable_date  | weekdays }} </p>
                                 <p class="card-text">Max: {{weather.max_temp }}°C</p>
                                 <p class="card-text">Min: {{weather.min_temp }}°C</p>
                                 <p class="card-text">Humidity: {{weather.humidity }}</p>
@@ -37,6 +37,10 @@
 </template>
 
 <script>
+const moment = require('moment')
+
+Vue.use(moment);
+
     export default {
      
 
@@ -76,10 +80,16 @@
                      this.weather_state_abbr.push('https://www.metaweather.com/static/img/weather/' + this.consolidated_weather[index].weather_state_abbr +'.svg');
                 }
 
-                console.log(this.weather_state_abbr);
-          
              })
             
+        },
+
+        filters: {
+            weekdays: function (value) {
+                return moment(value).format('dddd');    
+                // return moment(value).format('dddd/MM/YYYY');
+                // return moment(value).format('DD/MM/YYYY');
+            }
         },
 
         created() {
