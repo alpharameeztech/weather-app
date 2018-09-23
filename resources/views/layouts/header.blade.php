@@ -5,7 +5,7 @@
 			<div class="container">
 				<div class="nav-left">
 					<a class="nav-item">
-						My Stream
+						Weather Application
 					</a>
 				</div>
 				<span class="nav-toggle">
@@ -30,7 +30,7 @@
 				My Stream
 			</h1>
 			<h2 class="subtitle">
-				Laracasts Demo
+				Powered By Rameez Israr
 			</h2>
 		</div>
 	</div>
