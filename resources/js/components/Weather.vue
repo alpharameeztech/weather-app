@@ -12,7 +12,7 @@
                                 <img v-if="weather_state_abbr" :src="weather_state_abbr" alt="Snow" style="width:32px">
                                 <p class="card-text">Max: {{max_temp}}°C</p>
                                 <p class="card-text">Max: {{min_temp}}°C</p>
-                                <a href="#" class="btn btn-primary">View Details</a>
+                                <a href="#" class="btn btn-primary">View Forcest</a>
                             </div>
                         </div>
 
@@ -20,7 +20,7 @@
 
                 </div>
             </div>
-            
+
     
 </template>
 

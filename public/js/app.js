@@ -2500,7 +2500,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("a", { staticClass: "btn btn-primary", attrs: { href: "#" } }, [
-              _vm._v("View Details")
+              _vm._v("View Forcest")
             ])
           ])
         ])
