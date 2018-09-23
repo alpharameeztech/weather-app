@@ -2407,9 +2407,32 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
+          _c("div", { staticClass: "panel panel-default" }, [
+            _c("div", { staticClass: "panel-heading" }, [
+              _vm._v("The Contact Page")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "panel-body" }, [
+              _vm._v(
+                "\n                    I'm an example component! I am tired.\n                "
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -2492,11 +2515,11 @@ var render = function() {
               : _vm._e(),
             _vm._v(" "),
             _c("p", { staticClass: "card-text" }, [
-              _vm._v("Max: " + _vm._s(_vm.max_temp) + "°C")
+              _vm._v("Max: " + _vm._s(_vm._f("round")(_vm.max_temp)) + "°C")
             ]),
             _vm._v(" "),
             _c("p", { staticClass: "card-text" }, [
-              _vm._v("Max: " + _vm._s(_vm.min_temp) + "°C")
+              _vm._v("Min: " + _vm._s(_vm._f("round")(_vm.min_temp)) + "°C")
             ]),
             _vm._v(" "),
             _c("a", { staticClass: "btn btn-primary", attrs: { href: "#" } }, [
@@ -16211,6 +16234,7 @@ new Vue({
     el: '#app',
 
     router: __WEBPACK_IMPORTED_MODULE_1__routes__["a" /* default */]
+
 });
 
 /***/ }),
