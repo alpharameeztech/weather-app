@@ -15,8 +15,8 @@
                           
                             <div class="card-body">
                                 <h4 class="card-title">{{city_name}} <span class="badge badge-primary">Today: {{weather.the_temp}} °C</span></h4>
-                                <img v-if="weather_state_abbr" :src="weather_state_abbr[1]" alt="Snow" style="width:32px">
-                                  
+                                <img v-if="weather_state_abbr" :src="weather_state(weather.weather_state_abbr)" alt="Snow" style="width:32px">
+                                <p class="card-text">Date: {{weather.applicable_date}} </p>
                                 <p class="card-text">Max: {{weather.max_temp }}°C</p>
                                 <p class="card-text">Min: {{weather.min_temp }}°C</p>
                                 <p class="card-text">Humidity: {{weather.humidity }}</p>
@@ -53,7 +53,12 @@
               
             }
         },
-
+        methods: {
+            // a computed getter
+            weather_state(val) {
+                return 'https://www.metaweather.com/static/img/weather/' + val +'.svg';
+            }
+        },
         mounted() {
 
              axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://www.metaweather.com/api/location/`+ this.woeid)

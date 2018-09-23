@@ -1760,7 +1760,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         };
     },
-
+    methods: {
+        // a computed getter
+        weather_state: function weather_state(val) {
+            return 'https://www.metaweather.com/static/img/weather/' + val + '.svg';
+        }
+    },
     mounted: function mounted() {
         var _this = this;
 
@@ -2539,9 +2544,16 @@ var render = function() {
                     _vm.weather_state_abbr
                       ? _c("img", {
                           staticStyle: { width: "32px" },
-                          attrs: { src: _vm.weather_state_abbr[1], alt: "Snow" }
+                          attrs: {
+                            src: _vm.weather_state(weather.weather_state_abbr),
+                            alt: "Snow"
+                          }
                         })
                       : _vm._e(),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "card-text" }, [
+                      _vm._v("Date: " + _vm._s(weather.applicable_date) + " ")
+                    ]),
                     _vm._v(" "),
                     _c("p", { staticClass: "card-text" }, [
                       _vm._v("Max: " + _vm._s(weather.max_temp) + "°C")
