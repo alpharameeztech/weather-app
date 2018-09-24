@@ -13,7 +13,7 @@
                                   
                                 <p class="card-text">Max: {{max_temp | round}}°C</p>
                                 <p class="card-text">Min: {{min_temp | round}}°C</p>
-                                <a :href="link" class="btn btn-primary">View Forecest</a>
+                                <a :href="link" class="btn btn-primary">View Forecast</a>
                             </div>
                         </div>
 

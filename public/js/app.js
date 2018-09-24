@@ -19398,7 +19398,7 @@ var render = function() {
             _c(
               "a",
               { staticClass: "btn btn-primary", attrs: { href: _vm.link } },
-              [_vm._v("View Forcest")]
+              [_vm._v("View Forecast")]
             )
           ])
         ])
