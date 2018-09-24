@@ -72,11 +72,9 @@ Vue.use(moment);
                 this.max_temp = res.data.consolidated_weather[0].max_temp;
                 this.the_temp = res.data.consolidated_weather[0].the_temp;
                 
-                //this.weather_state_abbr =  'https://www.metaweather.com/static/img/weather/' + res.data.consolidated_weather[0].weather_state_abbr +'.svg';
                 this.consolidated_weather = res.data.consolidated_weather;
 
                 for (var index in this.consolidated_weather) {    // don't actually do this
-                    // console.log(this.consolidated_weather[index].weather_state_abbr);
                      this.weather_state_abbr.push('https://www.metaweather.com/static/img/weather/' + this.consolidated_weather[index].weather_state_abbr +'.svg');
                 }
 
@@ -87,13 +85,11 @@ Vue.use(moment);
         filters: {
             weekdays: function (value) {
                 return moment(value).format('dddd');    
-                // return moment(value).format('dddd/MM/YYYY');
-                // return moment(value).format('DD/MM/YYYY');
             }
         },
 
         created() {
-            // axios call here.
+           
         }
     }
 </script>
