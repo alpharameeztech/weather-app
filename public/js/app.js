@@ -19382,11 +19382,11 @@ var render = function() {
               : _vm._e(),
             _vm._v(" "),
             _c("p", { staticClass: "card-text" }, [
-              _vm._v("Max: " + _vm._s(_vm._f("round")(_vm.max_temp)) + "°C")
+              _vm._v("Max: " + _vm._s(_vm.max_temp) + "°C")
             ]),
             _vm._v(" "),
             _c("p", { staticClass: "card-text" }, [
-              _vm._v("Min: " + _vm._s(_vm._f("round")(_vm.min_temp)) + "°C")
+              _vm._v("Min: " + _vm._s(_vm.min_temp) + "°C")
             ]),
             _vm._v(" "),
             _c(
@@ -33122,16 +33122,44 @@ module.exports = function(module) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap__ = __webpack_require__("./resources/js/bootstrap.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routes__ = __webpack_require__("./resources/js/routes.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 
 
 window.Vue = __webpack_require__("./node_modules/vue/dist/vue.common.js");
 
 Vue.component('weather', __webpack_require__("./resources/js/components/Weather.vue"));
 
-new Vue({
-    el: '#app',
+var City = function City(title, link, author, img) {
+  _classCallCheck(this, City);
 
-    router: __WEBPACK_IMPORTED_MODULE_1__routes__["a" /* default */]
+  this.title = title;
+  this.link = link;
+};
+
+new Vue({
+  el: '#app',
+
+  router: __WEBPACK_IMPORTED_MODULE_1__routes__["a" /* default */],
+
+  // this data usually comes from the server side
+  data: {
+    search: '',
+    cities: [new City('Istanbul', '#/weather/2344116'), new City('Berlin', '#/weather/638242'), new City('London', '#/weather/44418'), new City('Helsinki', '#/weather/565346'), new City('Dublin', '#/weather/560743'), new City('Vancouver', '#/weather/9807')]
+  },
+
+  computed: {
+    filteredList: function filteredList() {
+      var _this = this;
+
+      return this.cities.filter(function (city) {
+
+        if (_this.search) {
+          return city.title.toLowerCase().includes(_this.search.toLowerCase());
+        }
+      });
+    }
+  }
 
 });
 

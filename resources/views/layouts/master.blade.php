@@ -16,7 +16,26 @@
 
             <section class="section">
                 <div class="container">
+                    
+                <div class='search-container'>
+                    <i id="search" class="fas fa-search fa-3x hide"></i>
+                    <input type='text' placeholder='Search your city here' v-model="search" class='search-input'>
+                    
+                </div>
+                
+
+                <div class="card" v-for="city in filteredList">
+                    <div class="card-body">
+                        <a v-bind:href="city.link">
+                            @{{ city.title }}
+                        </a>
+                    </div>
+                </div>
+                
+                <br/>
+
                     <router-view></router-view>
+ 
                 </div>
             </section>
         </div>

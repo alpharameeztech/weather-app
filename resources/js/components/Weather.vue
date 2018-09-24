@@ -11,8 +11,8 @@
                                 <h4 class="card-title">{{city_name}} <span class="badge badge-primary">Today: {{the_temp}} °C</span></h4>
                                 <img v-if="weather_state_abbr" :src="weather_state_abbr" alt="Snow" style="width:32px">
                                   
-                                <p class="card-text">Max: {{max_temp | round}}°C</p>
-                                <p class="card-text">Min: {{min_temp | round}}°C</p>
+                                <p class="card-text">Max: {{max_temp }}°C</p>
+                                <p class="card-text">Min: {{min_temp }}°C</p>
                                 <a :href="link" class="btn btn-primary">View Forecast</a>
                             </div>
                         </div>
