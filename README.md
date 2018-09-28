@@ -10,7 +10,7 @@ A simple single page application weather application build on using Larvel and V
 ### How do I get set up? ###
 
 
-* weather custom component that will accept woeid as bin argument
+> weather custom component that will accept woeid as bin argument
 
 
 
