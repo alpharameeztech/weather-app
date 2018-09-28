@@ -11,7 +11,7 @@ A simple single page application weather application build on using Larvel and V
 
 
 > weather custom component that will accept woeid as bin argument
-
+>> <weather v-bind:woeid="9807"></weather>
 
 
 ### anywhere on the vue files. ###
