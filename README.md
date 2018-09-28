@@ -1,29 +1,13 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+A simple single page application weather application build on using Larvel and Vue 
 
 ### What is this repository for? ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+* The application utilizes the meta-weather API. The application display the current weather of the 6 cities and when you click on the details button you will be able to see the weekly forecast for the following city.
+* You can add any number of cities.
 
 ### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+* use '<weather v-bind:woeid="9807"></weather>' anywhere on the vue/views file 
+* install composer and npm dependencies
