@@ -9,7 +9,8 @@ A simple single page application weather application build on using Larvel and V
 
 ### How do I get set up? ###
 
-use
+* <weather v-bind:woeid="9807"></weather> 
+
 
 
 # anywhere on the vue files. #
