@@ -10,10 +10,10 @@ A simple single page application weather application build on using Larvel and V
 ### How do I get set up? ###
 
 
-<weather v-bind:woeid="9807"></weather> 
+* weather custom component that will accept woeid as bin argument
 
 
 
-# anywhere on the vue files. #
+### anywhere on the vue files. ###
 
-# install composer and npm dependencies #
+### install composer and npm dependencies ###
