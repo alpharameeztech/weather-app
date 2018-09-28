@@ -12,7 +12,6 @@ A simple single page application weather application build on using Larvel and V
 use
 
 
-## anywhere on the vue files. ##
-> <weather v-bind:woeid="9807"></weather> 
+# anywhere on the vue files. #
 
-## install composer and npm dependencies ##
+# install composer and npm dependencies #
